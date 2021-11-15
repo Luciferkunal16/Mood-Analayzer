@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class MoodAnalayzer
 
 {
@@ -10,12 +12,15 @@ public class MoodAnalayzer
     }
 
     public String analyzeMood() {
-
-        if(this.message.contains("Sad")) {
-            return "SAD";
-        }
-        else {
-            return "HAPPY";
+        try {
+            if (message.length() == 0)
+                throw new NullPointerException();
+            if (message.contains("sad"))
+                return "SAD";
+            else
+                return "HAPPY";
+        } catch (NullPointerException e) {
+            return "Happy";
         }
     }
 
